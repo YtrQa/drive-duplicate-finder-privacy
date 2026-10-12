@@ -1,0 +1,211 @@
+<!doctype html>
+<!--
+  Страница политики конфиденциальности для публикации по публичному URL.
+
+  Chrome Web Store требует в поле «Privacy policy URL» именно адрес страницы:
+  файл в репозитории не подходит, ревьюер должен открыть его в браузере.
+
+  Двуязычная намеренно: карточка в Store на английском и ревьюеры читают
+  по-английски, а пользователи у расширения русскоязычные. Английский идёт
+  первым — его читает проверяющий.
+
+  Источник текста — docs/privacy-policy.md. При правке менять оба файла:
+  расхождение политики в репозитории и политики по публичному адресу — это
+  ровно то, на чём отказывают в ревью.
+
+  Страница самодостаточна: ни одного внешнего запроса, чтобы она открывалась
+  одинаково везде и не зависела от чужих серверов.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Drive Duplicate Finder</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #ffffff;
+        --fg: #1b1f24;
+        --muted: #5a6472;
+        --rule: #e2e6ea;
+        --accent: #1f6feb;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10141a;
+          --fg: #e6edf3;
+          --muted: #9aa7b4;
+          --rule: #2a313a;
+          --accent: #6aa8ff;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 2.5rem 1.25rem 4rem;
+        background: var(--bg);
+        color: var(--fg);
+        font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      }
+      main { max-width: 46rem; margin: 0 auto; }
+      h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 .35rem; }
+      h2 { font-size: 1.25rem; margin: 2.25rem 0 .6rem; }
+      h3 { font-size: 1.02rem; margin: 1.6rem 0 .4rem; }
+      p, ul { margin: .6rem 0; }
+      ul { padding-left: 1.3rem; }
+      li { margin: .3rem 0; }
+      a { color: var(--accent); }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: .92em;
+        word-break: break-word;
+      }
+      .meta { color: var(--muted); font-size: .92rem; margin: 0 0 1.5rem; }
+      .lead { font-size: 1.05rem; }
+      hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0 2rem; }
+      .lang-note { color: var(--muted); font-size: .92rem; }
+      footer { color: var(--muted); font-size: .88rem; margin-top: 3rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Privacy Policy — Drive Duplicate Finder</h1>
+      <p class="meta">
+        Chrome extension &ldquo;Drive Duplicate Finder&rdquo; · Last updated: 12 October 2026 ·
+        <a href="#ru">Версия на русском ниже</a>
+      </p>
+
+      <p class="lead">
+        Drive Duplicate Finder finds exact duplicate files in your Google Drive. In short:
+        everything stays on your own computer. The extension has no servers of its own and sends
+        your data nowhere.
+      </p>
+
+      <h2>What data is read</h2>
+      <p>
+        Only Google Drive <strong>file metadata</strong>: name, size, MD5 checksum, MIME type,
+        modification date, parent folder identifiers, the link to the file and the link to its
+        thumbnail. The extension never downloads or reads the contents of your files.
+      </p>
+
+      <h2>Where the data is stored</h2>
+      <ul>
+        <li>Metadata is stored locally in your browser&rsquo;s IndexedDB, as a cache for repeat scans.</li>
+        <li>Your settings are stored in your browser&rsquo;s <code>chrome.storage</code>.</li>
+        <li>
+          Nothing is transmitted anywhere. There are no servers of our own, no third-party
+          services, no analytics, no telemetry and no advertising. The only network address the
+          extension contacts is the Google Drive API
+          (<code>https://www.googleapis.com/</code>), using your own token.
+        </li>
+        <li>Data is not sold and is not shared with third parties.</li>
+      </ul>
+
+      <h2>What the extension changes in your Drive</h2>
+      <ul>
+        <li>Scanning uses read-only access (<code>drive.readonly</code>).</li>
+        <li>
+          Files are moved only after your explicit confirmation, and only to the Google Drive
+          trash. Permanent deletion is never performed — files can be restored from the trash.
+        </li>
+        <li>
+          Write access (<code>drive</code>) is requested separately, at the moment you first use
+          &ldquo;Move selected to trash&rdquo;.
+        </li>
+      </ul>
+
+      <h2>How to revoke access</h2>
+      <p>
+        Open <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>,
+        select Drive Duplicate Finder and choose &ldquo;Remove access&rdquo;. After that the
+        extension can no longer reach your Drive.
+      </p>
+
+      <h2>How to delete local data</h2>
+      <ul>
+        <li>
+          Remove the extension at <code>chrome://extensions</code> — Chrome deletes its IndexedDB
+          and <code>chrome.storage</code> along with it.
+        </li>
+        <li>
+          Or clear the extension&rsquo;s data at <code>chrome://settings/siteData</code>: find the
+          extension identifier and delete it.
+        </li>
+      </ul>
+
+      <h2>Questions</h2>
+      <p>Write to <a href="mailto:asrtehno@gmail.com">asrtehno@gmail.com</a>.</p>
+
+      <hr />
+
+      <h1 id="ru">Политика конфиденциальности — Drive Duplicate Finder</h1>
+      <p class="meta">
+        Расширение Chrome «Drive Duplicate Finder» · Обновлено: 12 октября 2026 года
+      </p>
+
+      <p class="lead">
+        Расширение Drive Duplicate Finder ищет точные дубликаты файлов в вашем Google Drive.
+        Ниже — что оно делает с данными. Коротко: всё остаётся на вашем компьютере.
+      </p>
+
+      <h2>Какие данные читаются</h2>
+      <p>
+        Только <strong>метаданные</strong> файлов Google Drive: имя, размер, MD5-хэш, MIME-тип,
+        дата изменения, идентификаторы родительских папок, ссылка на файл и ссылка на миниатюру.
+        Содержимое файлов расширение не скачивает и не читает.
+      </p>
+
+      <h2>Где данные хранятся</h2>
+      <ul>
+        <li>Метаданные сохраняются локально в IndexedDB вашего браузера — это кэш для повторных сканирований.</li>
+        <li>Настройки расширения хранятся в <code>chrome.storage</code> вашего браузера.</li>
+        <li>
+          Данные никуда не передаются. У расширения нет собственных серверов, нет сторонних
+          сервисов, аналитики, телеметрии и рекламы. Единственный сетевой адрес, к которому оно
+          обращается, — Google Drive API (<code>https://www.googleapis.com/</code>) с вашим токеном.
+        </li>
+        <li>Данные не продаются и не передаются третьим лицам.</li>
+      </ul>
+
+      <h2>Что расширение меняет в Drive</h2>
+      <ul>
+        <li>Сканирование использует доступ только на чтение (<code>drive.readonly</code>).</li>
+        <li>
+          Файлы перемещаются только после вашего явного подтверждения и только в корзину Google
+          Drive. Безвозвратное удаление не выполняется — файлы можно восстановить из корзины.
+        </li>
+        <li>
+          Доступ на изменение (<code>drive</code>) запрашивается отдельно, в момент первого
+          действия «Переместить выбранные в корзину».
+        </li>
+      </ul>
+
+      <h2>Как отозвать доступ</h2>
+      <p>
+        Откройте <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>,
+        выберите Drive Duplicate Finder и нажмите «Удалить доступ». После этого расширение не
+        сможет обращаться к вашему Drive.
+      </p>
+
+      <h2>Как удалить локальные данные</h2>
+      <ul>
+        <li>
+          Удалите расширение на <code>chrome://extensions</code> — вместе с ним Chrome удалит
+          IndexedDB и <code>chrome.storage</code> расширения.
+        </li>
+        <li>
+          Либо очистите данные расширения: <code>chrome://settings/siteData</code>, найдите
+          идентификатор расширения и удалите.
+        </li>
+      </ul>
+
+      <h2>Вопросы</h2>
+      <p>Пишите на <a href="mailto:asrtehno@gmail.com">asrtehno@gmail.com</a>.</p>
+
+      <footer>
+        Drive Duplicate Finder is an independent project and is not affiliated with Google LLC.
+        Google Drive is a trademark of Google LLC.
+      </footer>
+    </main>
+  </body>
+</html>
